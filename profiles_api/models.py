@@ -1,9 +1,10 @@
 from django.db import models
+from django.contrib.auth.models import BaseUserManager
 from django.contrib.auth.models import AbstractBaseUser
 from django.contrib.auth.models import PermissionsMixin
 
 
-class UserProfileManager(models.Manager):
+class UserProfileManager(BaseUserManager):
     """Manager for user profiles"""
     def create_user(self, email, name, password=None):
         """Create a new user profile"""
@@ -23,6 +24,9 @@ class UserProfileManager(models.Manager):
         user.is_staff = True
         user.save(using=self._db)
         return user
+    
+    def get_by_natural_key(self, email):
+        return self.get(email=email)
         
 class UserProfile(AbstractBaseUser, PermissionsMixin):
     """Database model for user profiles"""
