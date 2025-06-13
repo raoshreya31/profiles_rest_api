@@ -42,7 +42,7 @@ class UserProfile(AbstractBaseUser, PermissionsMixin):
 
 
     def get_full_name(self):
-        """Retrieve full anme of user"""
+        """Retrieve full name of user"""
         return self.name
     def get_short_name(self):
         """Retrieve short name of user"""
