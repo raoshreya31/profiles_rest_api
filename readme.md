@@ -1,3 +1,3 @@
 #profiles rest api
 
-rest api django project made for profiles section
+rest api django project made for profiles secto
